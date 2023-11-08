@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <!-- fonts awsome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="css/home.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+
+    <!-- bootstrap1 -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Candal&family=Lora&display=swap" rel="stylesheet">
+    <!-- <link href="./css/home.css" rel="stylesheet"> -->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            background: #f6f6f6;
+            font-family: 'Lora', serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Candal', serif;
+            color: #444;
+            margin: 5px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        header {
+            background: #008489;
+            height: 66px;
+        }
+
+        header * {
+            color: white;
+        }
+
+        header .logo {
+            float: left;
+            margin-left: 2rem;
+            height: inherit;
+            /*border: 1px solid red; */
+        }
+
+        header .logo-text {
+            margin: 9px;
+            font-family: 'Candal', serif;
+        }
+
+        header .logo-text span {
+            color: #05f7ff;
+        }
+
+        header ul {
+            float: right;
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+            /*border: 1px solid red; */
+        }
+
+        header ul li {
+            float: left;
+            position: relative;
+        }
+
+        header ul li ul {
+            position: absolute;
+            top: 66px;
+            right: 0px;
+            width: 180px;
+            display: none;
+            z-index: 88888;
+            float: right;
+        }
+
+        header ul li:hover ul {
+            display: block;
+        }
+
+        header ul li ul li {
+            width: 100%;
+        }
+
+        header ul li ul li a {
+            padding: 10px;
+            background: white;
+            color: #444;
+        }
+
+        header ul li ul li a.logout {
+            color: red;
+        }
+
+        header ul li ul li a:hover {
+            background: #d5d6d6;
+        }
+
+        header ul li a {
+            display: block;
+            padding: 21px;
+            font-size: 1.1rem;
+            text-decoration: none;
+
+        }
+
+        header ul li a:hover {
+            background: #006669;
+            transition: 0.5s;
+        }
+
+        header .menu-toggle {
+            display: none;
+        }
+
+        .page-wrapper a:hover {
+            color: #006669;
+        }
+
+        /*-- /post slider  --*/
+        .post-slider {
+            border: 1px solid red;
+        }
+
+        .post-slider .slider-title {
+            text-align: center;
+            margin: 30px auto;
+            background: #f6f6f6;
+            font-family: 'Lora', serif;
+        }
+
+        .post-slider .next {
+            position: absolute;
+            top: 50%;
+            right: 30px;
+            font-size: 2em;
+            color: #006669;
+            cursor: pointer;
+        }
+
+        .post-slider .prev {
+            position: absolute;
+            top: 50%;
+            left: 30px;
+            font-size: 2em;
+            color: #006669;
+            cursor: pointer;
+        }
+
+
+
+        .post-slider .post-wrapper {
+            width: 84%;
+            height: 350px;
+            margin: 0px auto;
+            overflow: hidden;
+            padding: 10px 0px 10px 0px;
+
+            border: 1px dashed red;
+        }
+
+        .post-slider .post-wrapper .post {
+            height: 350px;
+            width: 300px;
+            margin: 0px 10px;
+            display: inline-block;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 1rem 1rem 1rem -1rem #a0a0a033;
+        }
+
+        .post-slider .post-wrapper .post .post-info {
+            height: 130px;
+            padding: 0px 5px;
+            border: 1px solid green;
+        }
+
+        .post-slider .post-wrapper .post .slider-image {
+            width: 100%;
+            height: 200px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        @media only screen and (max-width:770px) {
+            header {
+                position: relative;
+            }
+
+            header ul {
+                width: 100%;
+                background: #0e94ad;
+                max-height: 0px;
+                /*border: 1px solid red; */
+                overflow: hidden;
+            }
+
+            header ul li {
+                width: 100%;
+            }
+
+            header ul li ul {
+                position: static;
+                display: block;
+                width: 100%;
+            }
+
+            header ul li ul a {
+                padding: 10px;
+                background: #0e94a0;
+                color: #444;
+                margin-left: 50px;
+            }
+
+            header ul li ul li a.logout {
+                color: red;
+            }
+
+            header .menu-toggle {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 20px;
+                font-size: 1.9em;
+            }
+
+            header .logo {
+                margin-left: .5em;
+            }
+
+
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Nav bar with responsive  -->
+    <header>
+        <div class="logo">
+            <h1 class="logo-text">
+                <span>Awa</span>Inspires
+            </h1>
+        </div>
+        <i class="fa fa-bars menu-toggle" aria-hidden="true"></i>
+        <ul class="nav">
+            <li><a href="/">Home</a>
+                <!-- <ul style="left:0px">
+                    <li><a href="#">Landing Page</a></li>
+                    <li><a href="#">Team</a></li>
+                </ul> -->
+            </li>
+            <li><a href="#">About</a></li>
+            <li><a href="/addBlog">Add Blog</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="">Contact Us</a></li>
+            <!-- <li><a href="">Sign Up</a></li>
+            <li><a href="">Login</a></li> -->
+            <li>
+                <a href="#">
+                    <i class="fa fa-user"></i>
+                    A Jass
+                    <i class="fa fa-chevron-down" style="font-size: .8rem;"></i>
+                </a>
+                <ul>
+                    <li><a href="#">Dhashboard</a></li>
+                    <li><a href="#" class="logout">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+    <!-- end of Nav bar with responsive  -->
+
+    <!-- crausel slider  -->
+    <div class="page-wrapper">
+        <div class="post-slider">
+            <h1 class="slider-title">Trending Post</h1>
+            <i class="fas fa-chevron-left prev"></i>
+            <i class="fas fa-chevron-right next"></i>
+
+
+            <div class="post-wrapper">
+                <% blogs.forEach((imageURL, index)=> { %>
+                    <div class="post">
+                        <img src="<%= imageURL.imageUrl %>" alt="" class="slider-image">
+                        <div class="post-info">
+                            <h3><a href="/blogs/<%-imageURL.id%>"><%-imageURL.title %></a></h3>
+                            <h4><a href="/blogs/<%-imageURL.id%>"><%-imageURL.subTitle %></a></h4>
+                            <i class="far fa-user">A Jass</i>
+                            &nbsp;
+                            <i class="far fa-calender">Nov 8, 2023</i>
+                        </div>
+                    </div>
+                    <% }); %>
+
+            </div>
+        </div>
+    </div>
+    <!-- end of crausel  -->
+
+    <!-- main content  -->
+    <!-- end of main content  -->
+
+    <br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+    <br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <div class="container">
+        <% blogs.forEach((blog)=>{ %>
+            <div class="blog-card">
+                <img class="blog-image" src="<%-blog.imageUrl %>" alt="Blog Image" height="40px">
+                <div class="blog-title"><%-blog.title %></div>
+                <div class="blog-subtitle"><%- blog.subTitle %></div>
+                <div class="blog-description"><%- blog.description %></div>
+                <a href="/blogs/<%-blog.id%>">
+                    See More
+                </a>
+            </div>
+            <% }) %>
+                <!-- Add more blog cards here as needed -->
+    </div>
+    <div class="footer">
+        &copy; 2023 102TCMS
+    </div>
+
+    <!-- slick crausels  -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $('.menu-toggle').on('click', function () {
+            $('.nav').toggleClass('showing');
+            $('.nav ul').toggleClass('showing');
+        });
+        $('.post-wrapper').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            nextArrow: $('.next'),
+            prevArrow: $('.prev'),
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+        });
+    </script>
+    <!-- slick crausels  -->
+</body>
+</html>
