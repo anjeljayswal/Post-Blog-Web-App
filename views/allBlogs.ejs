@@ -27,7 +27,9 @@
             box-sizing: border-box;
         }
 
+        html,
         body {
+            height: 100%;
             padding: 0;
             margin: 0;
             background: #f6f6f6;
@@ -48,6 +50,31 @@
         a {
             text-decoration: none;
             color: inherit;
+        }
+
+        .btn {
+            background: #006669;
+            color: white;
+            border: 1px solid transparent;
+            border-radius: .25rem;
+        }
+
+        .btn:hover {
+            color: white !important;
+            background: #005255;
+        }
+
+        .text-input {
+            padding: .7rem 1rem;
+            display: block;
+            width: 100%;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            outline: none;
+            color: #444;
+            line-height: 1.5rem;
+            font-size: 1.2em;
+            font-family: 'Lora', serif;
         }
 
         header {
@@ -137,13 +164,21 @@
             display: none;
         }
 
+        /*.page-wrapper{
+            min-height: 100%;
+        }*/
+        .page-wrapper {
+            
+        }
+
         .page-wrapper a:hover {
             color: #006669;
         }
 
         /*-- /post slider  --*/
         .post-slider {
-            border: 1px solid red;
+            position: relative;
+            /*  border: 1px solid red; --*/
         }
 
         .post-slider .slider-title {
@@ -171,8 +206,6 @@
             cursor: pointer;
         }
 
-
-
         .post-slider .post-wrapper {
             width: 84%;
             height: 350px;
@@ -180,7 +213,7 @@
             overflow: hidden;
             padding: 10px 0px 10px 0px;
 
-            border: 1px dashed red;
+            /* -border: 1px dashed red;*/
         }
 
         .post-slider .post-wrapper .post {
@@ -205,6 +238,227 @@
             border-top-left-radius: 5px;
             border-top-right-radius: 5px;
         }
+
+        /*-- content  --*/
+        .content {
+            width: 90%;
+            margin: 30px;
+        }
+
+        .content .main-content {
+            width: 70%;
+            float: left;
+        }
+
+        .content .main-content .post {
+            width: 95%;
+            height: 270px;
+            margin: 20px auto;
+            border-radius: 5px;
+            background: white;
+            position: relative;
+        }
+
+        .content .main-content .post .read-more {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            border: 1px solid #006669;
+            background: transparent;
+            border-radius: 0;
+            color: #006669 !important;
+
+        }
+
+        .content .main-content .post .read-more:hover {
+            background: #006669;
+            color: white !important;
+            transition: .25s;
+
+        }
+
+        .content .main-content .post .post-image {
+            width: 40%;
+            height: 100%;
+            float: left;
+        }
+
+        .content .main-content .post .post-preview {
+            padding: 10px;
+            width: 60%;
+            float: right;
+
+        }
+
+        .content .main-content .recent-post-title {
+            margin: 20px;
+        }
+
+        .content .sidebar {
+            width: 30%;
+            float: left;
+
+            height: 300px;
+        }
+
+        .content .sidebar .section {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .content .sidebar .section .section-title {
+            margin: 10px 0px 10px 0;
+        }
+
+        .content .sidebar .section .search {
+            margin-top: 80px;
+        }
+
+        .content .sidebar .section .topics ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .content .sidebar .section .topics ul li a {
+            display: block;
+            padding: 15px 0px 15px 0px;
+            border-bottom: 1px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+
+        .content .sidebar .section .topics ul li a:hover {
+            padding-left: 10px;
+            transition: all 0.3s;
+
+        }
+
+        /*- FOOTER--
+        .footer {
+            background: #303036;
+            color: #d3d3d3;
+            height: 400px;
+            position: absolute;
+            /*position: relative; 
+            bottom: 0;
+            margin-bottom: 0px;
+        }
+
+        .footer .footer-content {
+            
+            height: 350px;
+            display: flex;
+            flex-direction: row;
+
+        }
+
+        .footer .footer-content .footer-section {
+            flex: 1;
+            padding: 25px;
+            
+            box-sizing: border-box;
+        }
+
+        .footer .footer-content h1,
+        .footer .footer-content h2 {
+            color: white;
+        }
+
+        .footer .footer-content .about h1 span {
+            color: #05f7ff;
+        }
+
+        .footer .footer-content .about .contact span {
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .footer .footer-content .about .socials a {
+            border: 1px solid gray;
+            width: 45px;
+            height: 41px;
+            padding-top: 5px;
+            margin-right: 5px;
+            text-align: center;
+            display: inline-block;
+            font-size: 1.3em;
+            border-radius: 5px;
+            transition: all .3s;
+
+        }
+
+        .footer .footer-content .about .socials a:hover {
+            border: 1px solid white;
+            color: white;
+            transition: all .3s;
+        }
+
+        .footer .footer-content .links ul a {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .footer .footer-content .links ul a:hover {
+            color: white;
+            margin-left: 15px;
+            transition: all .3s;
+
+        }
+
+        .footer .footer-content .contact-form .contact-input {
+            background: #272727;
+            color: #bebdbd;
+            margin-bottom: 10px;
+            line-height: 1.5rem;
+            padding: .9rem 1.4rem;
+            border: none;
+            height: 50px;
+        }
+
+        .footer .footer-content .contact-form .contact-input:focus {
+            background: #1a1a1a;
+        }
+        .contact-btn{
+            float: right;
+        }
+
+        .btn-big {
+            padding: .7rem 1.3rem;
+
+            line-height: 1.3rem;
+        }
+
+
+
+        .footer .footer-bottom {
+            background: #343a40;
+            color: #686868;
+            height: 50px;
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            padding-top: 20px;
+        }
+        */
+
+
+
+
+
+
+        .clearfix ::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
         @media only screen and (max-width:770px) {
             header {
                 position: relative;
@@ -235,7 +489,7 @@
                 margin-left: 50px;
             }
 
-            header ul li ul li a.logout {
+            header ul li ul li a .logout {
                 color: red;
             }
 
@@ -312,7 +566,9 @@
                             <h4><a href="/blogs/<%-imageURL.id%>"><%-imageURL.subTitle %></a></h4>
                             <i class="far fa-user">A Jass</i>
                             &nbsp;
-                            <i class="far fa-calender">Nov 8, 2023</i>
+                            <i class="far fa-calender">
+                                <%= formatDate(imageURL.createdAt) %>
+                            </i>
                         </div>
                     </div>
                     <% }); %>
@@ -322,20 +578,64 @@
     </div>
     <!-- end of crausel  -->
 
-    <!-- main content  -->
-    <!-- end of main content  -->
+    <!-- content  -->
+    <div class="content clearfix">
+        <!-- main content -->
+        <div class="main-content">
+            <h1 class="recent-post-title">Recent Post</h1>
+            <% blogs.forEach((blog)=>{ %>
+                <div class="post">
+                    <img src="<%-blog.imageUrl %>" alt="" class="post-image">
+                    <div class="post-preview">
+                        <h2><a href="/blogs/<%-blog.id%>"><%-blog.title %></a></h2>
+                        <h5><a href="/blogs/<%-blog.id%>"><%-blog.subTitle %></a></h5>
+                        <i class="far fa-user">A Jass</i>
+                        &nbsp;
+                        <i class="far calender">
+                            <%= formatDate(blog.createdAt) %>
+                        </i>
+                        <p class="preview-text"><%-blog.description %>
 
-    <br><br><br>
+
+                        </p>
+                        <a href="/blogs/<%-blog.id%>" class="btn read-more">Read More</a>
+                    </div>
+                </div>
+                <% }) %>
+        </div>
+        <div class="sidebar">
+            <div class="section search">
+                <h2 class="section-title">Search</h2>
+                <form action="" method="">
+                    <input type="text" name="search-term" class="text-input" placeholder="Search...">
+                </form>
+            </div>
+
+            <div class="section topics">
+                <h2 class="section-title">Topics</h2>
+                <ul>
+                    <li><a href="#">Poems</a></li>
+                    <li><a href="">Quotes</a></li>
+                    <li><a href="">Fiction</a></li>
+                    <li><a href="">Biography</a></li>
+                    <li><a href="">Motivation</a></li>
+                    <li><a href="">Inspiration</a></li>
+                    <li><a href="">Life Lessons</a></li>
+
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+    <!-- end  content  -->
+
+
+    <!-- <br><br><br>
     <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
 
-
-
-
-    <br><br><br>
-    <br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-    <div class="container">
+    <!-- <div class="container">
         <% blogs.forEach((blog)=>{ %>
             <div class="blog-card">
                 <img class="blog-image" src="<%-blog.imageUrl %>" alt="Blog Image" height="40px">
@@ -347,11 +647,81 @@
                 </a>
             </div>
             <% }) %>
-                <!-- Add more blog cards here as needed -->
-    </div>
-    <div class="footer">
-        &copy; 2023 102TCMS
-    </div>
+                Add more blog cards here as needed
+    </div> -->
+
+    <!-- footer  -->
+
+    <!-- <div class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h1 class="logo-text"><span>Awa</span>Inspires</h1>
+                <p>
+                    AwaInspires is fictionsl blog conceived for the purpose of tutorial on YoTube.
+                    Howeve, Awa has a blog called piececpfadvice where he writes truely inspiring stuff.
+                </p>
+                <div class="contact">
+                    <span><i class="fas fa-phone"></i>&nbsp; 123-456-789</span>
+                    <span><i class="fas fa-envelope">&nbsp; abc@gmail.com</i></span>
+                </div>
+                <div class="socials">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkdin"></i></a>
+                </div>
+
+            </div>
+
+            <div class="footer-section links">
+                <h2>Quick Links</h2>
+                <br>
+                <ul>
+                    <a href="#">
+                        <li>Events</li>
+                    </a>
+
+                    <a href="#">
+                        <li>Team</li>
+                    </a>
+
+                    <a href="#">
+                        <li>Mentors</li>
+                    </a>
+
+                    <a href="#">
+                        <li>Gallery</li>
+                    </a>
+
+                    <a href="#">
+                        <li>Terms and Conditions</li>
+                    </a>
+
+                </ul>
+            </div>
+            <div class="footer-section contact-form">
+                <h2>Contact us</h2>
+                <br>
+                <form action="" method="post"></form>
+                <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...">
+                <textarea name="message" class="text-input contact-input" placeholder="Your message..." id="" cols="30"
+                    rows="10"></textarea>
+                <button type="submit" class="btn btn-big contact-btn">
+                    <i class="fas fa-envelope"></i>
+                    Send
+                </button>
+
+            </div>
+
+
+        </div>
+        <div class="footer-bottom">
+            &copy; 2023 102TCMS | Designed by Anjali Jayswal
+        </div>
+
+    </div> -->
+    <!-- //footer  -->
 
     <!-- slick crausels  -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -399,4 +769,5 @@
     </script>
     <!-- slick crausels  -->
 </body>
+
 </html>

@@ -1,24 +1,168 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <!-- fonts awsome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="css/home.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+
+    <!-- bootstrap1 -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Candal&family=Lora&display=swap" rel="stylesheet">
+    <!-- <link href="./css/home.css" rel="stylesheet"> -->
+    
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
+        * {
+            box-sizing: border-box;
+        }
+
+        html,body {
+            height: 100%;
             padding: 0;
+            margin: 0;
+            background: #f6f6f6;
+            font-family: 'Lora', serif;
         }
 
-        .navbar {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Candal', serif;
+            color: #444;
+            margin: 5px;
         }
 
-        .navbar a {
+        a {
             text-decoration: none;
-            color: #fff;
-            margin: 10px;
+            color: inherit;
         }
+
+        .btn {
+            background: #006669;
+            color: white;
+            border: 1px solid transparent;
+            border-radius: .25rem;
+        }
+
+        .btn:hover {
+            color: white !important;
+            background: #005255;
+        }
+
+        .text-input {
+            padding: .7rem 1rem;
+            display: block;
+            width: 100%;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            outline: none;
+            color: #444;
+            line-height: 1.5rem;
+            font-size: 1.2em;
+            font-family: 'Lora', serif;
+        }
+
+        header {
+            background: #008489;
+            height: 66px;
+        }
+
+        header * {
+            color: white;
+        }
+
+        header .logo {
+            float: left;
+            margin-left: 2rem;
+            height: inherit;
+            /*border: 1px solid red; */
+        }
+
+        header .logo-text {
+            margin: 9px;
+            font-family: 'Candal', serif;
+        }
+
+        header .logo-text span {
+            color: #05f7ff;
+        }
+
+        header ul {
+            float: right;
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+            /*border: 1px solid red; */
+        }
+
+        header ul li {
+            float: left;
+            position: relative;
+        }
+
+        header ul li ul {
+            position: absolute;
+            top: 66px;
+            right: 0px;
+            width: 180px;
+            display: none;
+            z-index: 88888;
+            float: right;
+        }
+
+        header ul li:hover ul {
+            display: block;
+        }
+
+        header ul li ul li {
+            width: 100%;
+        }
+
+        header ul li ul li a {
+            padding: 10px;
+            background: white;
+            color: #444;
+        }
+
+        header ul li ul li a.logout {
+            color: red;
+        }
+
+        header ul li ul li a:hover {
+            background: #d5d6d6;
+        }
+
+        header ul li a {
+            display: block;
+            padding: 21px;
+            font-size: 1.1rem;
+            text-decoration: none;
+
+        }
+
+        header ul li a:hover {
+            background: #006669;
+            transition: 0.5s;
+        }
+
+        header .menu-toggle {
+            display: none;
+        }
+        
 
         .container {
             margin: 20px;
@@ -32,10 +176,10 @@
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         }
 
-        .blog-image {
+        /*-- .blog-image {
             width: 100%;
             height: 250px;
-        }
+        } --*/
 
         .blog-title {
             font-size: 24px;
@@ -51,35 +195,167 @@
             margin-top: 10px;
         }
 
+        
         .footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            position: absolute;
-            bottom: 0;
+            background: #303036;
+            color: #d3d3d3;
+            min-height: 400px; /* Set a minimum height for the footer */
+            position: relative;
             width: 100%;
+            padding: 40px 20px; /* Adjust padding as needed */
         }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap; /* Allow sections to wrap to the next line on smaller screens */
+        }
+        
+        .footer-section {
+            flex: 1;
+            padding: 25px;
+            box-sizing: border-box;
+        }
+        
+        .footer-section.about {
+            border: 1px solid white;
+        }
+        
+        .footer-section.about .logo-text {
+            color: #05f7ff;
+        }
+        
+        .contact {
+            margin-top: 20px;
+        }
+        
+        .contact span {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .socials a {
+            color: #d3d3d3;
+            margin-right: 10px;
+            font-size: 1.5em;
+            transition: color 0.3s;
+        }
+        
+        .socials a:hover {
+            color: #05f7ff;
+        }
+        
+        .links {
+            border: 1px solid white;
+        }
+        
+        .links h2 {
+            margin-bottom: 10px;
+        }
+        
+        .links ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .links ul a {
+            text-decoration: none;
+            color: #d3d3d3;
+            transition: color 0.3s;
+        }
+        
+        .links ul a:hover {
+            color: #05f7ff;
+        }
+        
+        .contact-form {
+            margin-top: 0px;
+            border: 1px solid white;
+        }
+        
+        .contact-form h2 {
+            margin-bottom: 10px;
+        }
+        
+        .text-input.contact-input {
+            margin-bottom: 10px;
+        }
+        
+        .btn.btn-big {
+            background: #006669;
+            color: white;
+            border: 1px solid transparent;
+            border-radius: .25rem;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        
+        .btn.btn-big:hover {
+            background: #005255;
+        }
+        .footer-bottom {
+            background: #343a40;
+            color: #686868;
+            height: 50px;
+            width: 100%;
+            text-align: center;
+            padding-top: 20px;
+            position: absolute;
+            bottom: 0; /* Stick it to the bottom */
+            left: 0;
+        }
+        
+
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <a href="/">Home</a>
-        <a href="/addBlog">Add Blog</a>
-        <a href="#">Contact</a>
-    </div>
+    <!-- Nav bar with responsive  -->
+    <header>
+        <div class="logo">
+            <h1 class="logo-text">
+                <span>Awa</span>Inspires
+            </h1>
+        </div>
+        <i class="fa fa-bars menu-toggle" aria-hidden="true"></i>
+        <ul class="nav">
+            <li><a href="/">Home</a>
+                <!-- <ul style="left:0px">
+                    <li><a href="#">Landing Page</a></li>
+                    <li><a href="#">Team</a></li>
+                </ul> -->
+            </li>
+            <li><a href="#">About</a></li>
+            <li><a href="/addBlog">Add Blog</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="">Contact Us</a></li>
+            <!-- <li><a href="">Sign Up</a></li>
+            <li><a href="">Login</a></li> -->
+            <li>
+                <a href="#">
+                    <i class="fa fa-user"></i>
+                    A Jass
+                    <i class="fa fa-chevron-down" style="font-size: .8rem;"></i>
+                </a>
+                <ul>
+                    <li><a href="#">Dhashboard</a></li>
+                    <li><a href="#" class="logout">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+    <!-- end of Nav bar with responsive  -->
+
 
     <div class="container">
- 
+       
         <div class="blog-card">
-            <img class="blog-image" src="<%- blog[0].image %>" alt="Blog Image" >
+            <img class="blog-image" src="<%= blog[0].image %>" alt="Blog Image" >
             <div class="blog-title">"<%- blog[0].title %>"</div>
             <div class="blog-subtitle">"<%- blog[0].subTitle %>"</div>
             <div class="blog-description">"<%- blog[0].description %>"</div>
             <button><a href="/delete/<%- blog[0].id %>">Delete Me</a></button>
           
         </div>
-
+       
 
 
 
@@ -88,7 +364,62 @@
     </div>
 
     <div class="footer">
-        &copy; 2023 102TCMS
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h1 class="logo-text"><span>Awa</span>Inspires</h1>
+                <p>
+                    AwaInspires is fictionsl blog conceived for the purpose of tutorial on YoTube. 
+                    Howeve, Awa has a blog called piececpfadvice where he writes truely inspiring stuff.
+                </p>
+                <div class="contact">
+                    <span><i class="fas fa-phone"></i>&nbsp; 123-456-789</span>
+                    <span><i class="fas fa-envelope">&nbsp; abc@gmail.com</i></span>
+                </div>
+                <div class="socials">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkdin"></i></a>
+                </div>
+
+            </div>
+
+            <div class="footer-section links">
+                <h2>Quick Links</h2>
+                <br>
+                <ul>
+                    <a href="#"><li>Events</li></a>
+                    
+                    <a href="#"><li>Team</li></a>
+                    
+                    <a href="#"><li>Mentors</li></a>
+                    
+                    <a href="#"><li>Gallery</li></a>
+                    
+                    <a href="#"><li>Terms and Conditions</li></a>
+                    
+                </ul>
+            </div>
+            <div class="footer-section contact-form">
+                <h2>Contact us</h2>
+                <br>
+                <form action="" method="post"></form>
+                <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...">
+                <textarea name="message" class="text-input contact-input" placeholder="Your message..." id="" cols="30" rows="10"></textarea>
+                <button type="submit" class="btn btn-big">
+                    <i class="fas fa-envelope"></i>
+                    Send
+                </button>
+
+            </div>
+
+
+        </div>
+        <div class="footer-bottom">
+            &copy; 2023 102TCMS | Designed by Anjali Jayswal
+        </div>
+        
     </div>
 </body>
 </html>

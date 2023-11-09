@@ -94,6 +94,19 @@ app.post("/addBlog",upload.single('image'), async(req,res)=>{
 
 })
 
+
+
+// Function to format a date string
+function formatDate(dateStr) {
+    const date = new Date(dateStr);
+    const options = { weekday: 'short', year: 'numeric', month: 'short', day: '2-digit' };
+    return date.toLocaleDateString('en-US', options);
+}
+
+// Make the function available to your EJS templates
+app.locals.formatDate = formatDate;
+
+
 // get all Blogs 
 
 
@@ -104,3 +117,15 @@ const PORT  = process.env.PORT
 app.listen(PORT,()=>{
     console.log("Node js project has started at port " + PORT)
 })
+
+
+
+
+
+
+// git init
+// git add README.md
+// git commit -m "first commit"
+// git branch -M main
+// git remote add origin https://github.com/anjeljayswal/Post-Blog-Web-App.git
+// git push -u origin main
