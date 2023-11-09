@@ -189,6 +189,10 @@ app.locals.formatDate = formatDate;
 
 
 // get all Blogs 
+//resister
+app.get("/register",(req,res)=>{
+    res.render("registerUser")
+})
 
 
 app.use(express.static("./uploads/"))

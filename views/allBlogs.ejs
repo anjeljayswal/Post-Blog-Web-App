@@ -54,10 +54,13 @@
         }
 
         .btn {
+            padding: .5rem 1rem;
             background: #006669;
             color: white;
             border: 1px solid transparent;
             border-radius: .25rem;
+            font-size: 1.08em;
+            font-family: 'Lora',serif;
         }
 
         .btn:hover {
@@ -231,9 +234,9 @@
             box-shadow: 1rem 1rem 1rem -1rem #a0a0a033;
         }
 
-        .post-slider .post-wrapper .post .post-info {
+      .post-slider .post-wrapper .post .post-info   {
             height: 130px;
-            padding: 0px 5px;
+            padding: 13px 13px;
             border: 1px solid green;
         }
 
@@ -247,12 +250,14 @@
         /*-- content  --*/
         .content {
             width: 90%;
-            margin: 30px;
+            margin: 30px auto 30px;
+            border: 1px solid red;
         }
 
         .content .main-content {
             width: 70%;
             float: left;
+            border: 1px soli blue;
         }
 
         .content .main-content .post {
@@ -292,50 +297,37 @@
             padding: 10px;
             width: 60%;
             float: right;
-
-
-
         }
-
         .content .main-content .post .post-preview .preview-text {
             overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 5;
             /* Number of lines to show before adding ellipsis */
             -webkit-box-orient: vertical;
         }
-
         .content .main-content .recent-post-title {
             margin: 20px;
         }
-
         .content .sidebar {
             width: 30%;
             float: left;
-
-            height: 300px; 
+            border: 1px dashed greenyellow;            
         }
-
-
         .content .sidebar .section {
             background: white;
             padding: 20px;
             border-radius: 5px;
             margin-bottom: 20px;
         }
-
-
         .content .sidebar .section .section-title {
             margin: 10px 0px 10px 0;
         }
-
-
-        .content .sidebar .section .search {
+        .content .sidebar .section.search {
             margin-top: 80px;
         }
 
-        .content .sidebar .section .topics ul{
+        .content .sidebar .section.topics ul{
             margin: 0;
             padding: 0;
             list-style: none;
@@ -343,14 +335,14 @@
         }
 
 
-        .content .sidebar .section .topics ul li a{
+        .content .sidebar .section.topics ul li a{
             display: block;
-            padding: 15px 0px 15px 10px;
+            padding: 15px 0px 15px 0px;
             border-bottom: 1px solid #e0e0e0;
             transition: all 0.3s;
         }
 
-        .content .sidebar .section .topics ul li a:hover {
+        .content .sidebar .section.topics ul li a:hover {
             padding-left: 10px;
             transition: all 0.3s;
 
@@ -362,7 +354,7 @@
             background: #008489;;
             color: #d3d3d3;
             height: 350px;
-            
+            border: 1px solid red;            
         }
 
         .footer .footer-content {
@@ -370,6 +362,7 @@
             height: 350px;
             display: flex;
             flex-direction: row;
+            border: 1px solid blue;
 
         }
 
@@ -378,6 +371,7 @@
             padding: 25px;
 
             box-sizing: border-box;
+            border: 1px solid white ;
         }
 
         .footer .footer-content h1,
@@ -419,6 +413,7 @@
             display: block;
             margin-bottom: 10px;
             font-size: 1.2em;
+            transition: all .3s;
         }
 
         .footer .footer-content .links ul a:hover {
@@ -451,12 +446,8 @@
 
         .btn-big {
             padding: .7rem 1.3rem;
-
             line-height: 1.3rem;
         }
-
-
-
         .footer .footer-bottom {
             background: #343a40;
             color: #686868;
@@ -468,20 +459,13 @@
             left: 0px;
             padding-top: 20px;
         }
-
-
-
-
-
-
-
         .clearfix ::after {
             content: "";
             display: block;
             clear: both;
         }
 
-        @media only screen and (max-width:770px) {
+        @media only screen and (max-width:776px) {
             header {
                 position: relative;
             }
@@ -530,6 +514,81 @@
 
 
         }
+        @media only screen and (max-width:934px){
+            .content {
+                width: 100%;
+                
+            }
+            .content .main-content{
+                width: 100%;
+                padding: 10px;
+            }
+            .content .main-content .post{
+                width: 100%;
+
+                
+            }
+            .content .sidebar{
+                width: 100%;
+                padding: 10X;
+            }
+            .content .sidebar .section.search{
+                margin-top: 30px;
+            }
+            .footer {                
+                height: auto;
+                border: 1px solid red;                
+            }    
+            .footer .footer-content {    
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                border: 1px solid blue;    
+            }
+            .footer .footer-content .contact-form{
+                padding-bottom: 90px;
+            }
+            .footer .footer-content .contact-form .contact-btn{
+                width: 100%;
+            }
+    
+            
+    
+             
+        }
+        @media only screen and (max-width:600px){
+            .content .main-content .post{
+                height: auto;
+            }
+            .content .main-content .post .post-image{
+                width: 100%;                
+            }
+            .content .main-content .post .post-preview{
+                width: 100%;
+            }
+            .content .main-content .post .read-more{
+                position: static;
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+            .post-slider .next{
+                right: 10px;
+            }
+            .post-slider .prev{
+                left: 10px;
+            }
+            .content .main-content .post .post-preview .preview-text {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                /* Number of lines to show before adding ellipsis */
+                -webkit-box-orient: vertical;
+            }
+        }
+
+        
     </style>
 
 </head>
@@ -584,7 +643,7 @@
                     <div class="post">
                         <img src="<%= imageURL.imageUrl %>" alt="" class="slider-image">
                         <div class="post-info">
-                            <h3><a href="/blogs/<%-imageURL.id%>"><%-imageURL.title %></a></h3>
+                            <!-- <h3><a href="/blogs/<%-imageURL.id%>"><%-imageURL.title %></a></h3> -->
                             <h4><a href="/blogs/<%-imageURL.id%>"><%-imageURL.subTitle %></a></h4>
                             <i class="far fa-user">A Jass</i>
                             &nbsp;
@@ -606,7 +665,7 @@
         <div class="main-content">
             <h1 class="recent-post-title">Recent Post</h1>
             <% blogs.forEach((blog)=>{ %>
-                <div class="post">
+                <div class="post clearfix">
                     <img src="<%-blog.imageUrl %>" alt="" class="post-image">
                     <div class="post-preview">
                         <h2><a href="/blogs/<%-blog.id%>"><%-blog.title %></a></h2>

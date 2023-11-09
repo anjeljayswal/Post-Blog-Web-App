@@ -7,7 +7,7 @@
     <title>Blog</title>
     <!-- fonts awsome  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-   
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
@@ -28,7 +28,8 @@
         }
 
 
-        html,body {
+        html,
+        body {
             margin: 0;
             padding: 0;
             min-height: 100vh;
@@ -54,10 +55,13 @@
         }
 
         .btn {
+            padding: .5rem 1rem;
             background: #006669;
             color: white;
             border: 1px solid transparent;
             border-radius: .25rem;
+            font-size: 1.08em;
+            font-family: 'Lora', serif;
         }
 
         .btn:hover {
@@ -77,7 +81,8 @@
             font-size: 1.2em;
             font-family: 'Lora', serif;
         }
-        .note-input{
+
+        .note-input {
             height: 150px;
         }
 
@@ -247,22 +252,26 @@
         /*-- content  --*/
         .content {
             width: 90%;
-            margin: 30px;
+            margin: 30px auto 30px;
+            border: 1px solid red;
         }
 
         .content .main-content {
             width: 70%;
             float: left;
+            border: 1px soli blue;
         }
-        .content .main-content.single{
-            background:white ;
+
+        .content .main-content.single {
+            background: white;
             padding: 20px 50px;
             font-size: 1.1em;
-            border-radius: 5px ;
+            border-radius: 5px;
         }
-        .content .main-content.single .post-title{
+
+        .content .main-content.single .post-title {
             text-align: center;
-            margin-bottom: 40px ;
+            margin-bottom: 40px;
         }
 
         .content .main-content .post {
@@ -273,16 +282,18 @@
             background: white;
             position: relative;
         }
-        .content .popular .post{
+
+        .content .popular .post {
             border-top: 1px solid #e0e0e0;
             margin-top: 10px;
             padding-top: 10px;
         }
-        .content .popular .post img{
+
+        .content .popular .post img {
             height: 60px;
             width: 60px;
             float: left;
-            margin-right:10px ;
+            margin-right: 10px;
         }
 
 
@@ -296,6 +307,7 @@
             color: #006669 !important;
 
         }
+
         .content .main-content .post .delete-more:hover {
             background: #006669;
             color: white !important;
@@ -333,7 +345,7 @@
             float: right;
         }
 
-        
+
 
         .content .main-content .recent-post-title {
             margin: 20px;
@@ -342,68 +354,54 @@
         .content .sidebar {
             width: 30%;
             float: left;
-
-            height: 300px; 
+            height: 150px;
         }
-        .content .sidebar.single{
+        .content .sidebar.single {
             padding: 0px 10px;
-
         }
-
-
         .content .sidebar .section {
             background: white;
             padding: 20px;
             border-radius: 5px;
             margin-bottom: 20px;
         }
-
-
         .content .sidebar .section .section-title {
             margin: 10px 0px 10px 0;
         }
-
-
         .content .sidebar .section .search {
             margin-top: 80px;
         }
-
-        .content .sidebar .section .topics ul{
+        .content .sidebar .section.topics ul {
             margin: 0;
             padding: 0;
             list-style: none;
             border-top: 1px solid #e0e0e0;
         }
-
-
-        .content .sidebar .section .topics ul li a{
+        .content .sidebar .section.topics ul li a {
             display: block;
-            padding: 15px 0px 15px 10px;
+            padding: 15px 0px 15px 0px;
             border-bottom: 1px solid #e0e0e0;
             transition: all 0.3s;
         }
-
-        .content .sidebar .section .topics ul li a:hover {
+        .content .sidebar .section.topics ul li a:hover {
             padding-left: 10px;
             transition: all 0.3s;
-
         }
 
 
+        /*- FOOTER--*/
         /*- FOOTER--*/
         .footer {
             background: #008489;;
             color: #d3d3d3;
             height: 350px;
-            
+            border: 1px solid red;            
         }
-
         .footer .footer-content {
-
             height: 350px;
             display: flex;
             flex-direction: row;
-
+            border: 1px solid blue;
         }
 
         .footer .footer-content .footer-section {
@@ -411,6 +409,7 @@
             padding: 25px;
 
             box-sizing: border-box;
+            border: 1px solid white ;
         }
 
         .footer .footer-content h1,
@@ -452,6 +451,7 @@
             display: block;
             margin-bottom: 10px;
             font-size: 1.2em;
+            transition: all .3s;
         }
 
         .footer .footer-content .links ul a:hover {
@@ -484,12 +484,8 @@
 
         .btn-big {
             padding: .7rem 1.3rem;
-
             line-height: 1.3rem;
         }
-
-
-
         .footer .footer-bottom {
             background: #343a40;
             color: #686868;
@@ -501,20 +497,13 @@
             left: 0px;
             padding-top: 20px;
         }
-
-
-
-
-
-
-
         .clearfix ::after {
             content: "";
             display: block;
             clear: both;
-        }
+        }        
 
-        @media only screen and (max-width:770px) {
+        @media only screen and (max-width:776px) {
             header {
                 position: relative;
             }
@@ -559,10 +548,56 @@
             header .logo {
                 margin-left: .5em;
             }
-
-
-
         }
+
+        
+        @media only screen and (max-width:934px){
+            .content {
+                width: 100%;                
+            }
+            .content .main-content{
+                width: 100%;
+                padding: 10px;
+            }
+            .content .main-content .post{
+                width: 100%;                
+            }
+            .content .sidebar{
+                width: 100%;
+                padding: 10px;
+            }            
+            .footer {                
+                height: auto;
+                border: 1px solid red;                
+            }    
+            .footer .footer-content {    
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                border: 1px solid blue;    
+            }
+            .footer .footer-content .contact-form{
+                padding-bottom: 90px;
+            }
+            .footer .footer-content .contact-form .contact-btn{
+                width: 100%;
+            }             
+        } 
+
+        @media only screen and (max-width:600px){
+            .content .main-content .post{
+                height: auto;
+            }
+            .content ,.main-content.single{
+                padding: 10px 20px;
+            }
+            .content .main-content .post .post-image{
+                width: 100%;                
+            }
+            .content .main-content .post .post-preview{
+                width: 100%;
+            }
+        } 
     </style>
 
 </head>
@@ -586,7 +621,7 @@
             <li><a href="#">About</a></li>
             <li><a href="/addBlog">Add Blog</a></li>
             <li><a href="#">Services</a></li>
-            
+
             <!-- <li><a href="">Sign Up</a></li>
             <li><a href="">Login</a></li> -->
             <li>
@@ -604,7 +639,7 @@
     </header>
     <!-- end of Nav bar with responsive  -->
 
-    
+
     <!-- content  -->
     <div class="content clearfix">
         <!-- main content -->
@@ -612,13 +647,16 @@
             <h1 class="post-title">Title</h1>
             <div class="post-content">
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, voluptates.</p>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum eum dolorem quasi distinctio laudantium obcaecati animi debitis odit eos assumenda!</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum eum dolorem quasi distinctio
+                    laudantium obcaecati animi debitis odit eos assumenda!</p>
                 <p>Lorem ipsum dolor sit amet.</p>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, voluptates.</p>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum eum dolorem quasi distinctio laudantium obcaecati animi debitis odit eos assumenda!</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum eum dolorem quasi distinctio
+                    laudantium obcaecati animi debitis odit eos assumenda!</p>
                 <p>Lorem ipsum dolor sit amet.</p>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, voluptates.</p>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum eum dolorem quasi distinctio laudantium obcaecati animi debitis odit eos assumenda!</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum eum dolorem quasi distinctio
+                    laudantium obcaecati animi debitis odit eos assumenda!</p>
                 <p>Lorem ipsum dolor sit amet.</p>
             </div>
 
@@ -629,26 +667,26 @@
 
 
             <h1 class="recent-post-title">Recent Post</h1>
-            
-                <div class="post">
-                    <img src="<%- blog[0].imageUrl %>" alt="" class="post-image">
-                    <div class="post-preview">
-                        <h2><a href=""><%- blog[0].title %></a></h2>
-                        <h5><a href=""></a><%- blog[0].subTitle %></h5>
-                        <i class="far fa-user">A Jass</i>
-                        &nbsp;
-                        <i class="far calender">
-                           
-                        </i>
-                        <p class="preview-text"><%- blog[0].description %>
+
+            <div class="post">
+                <img src="<%- blog[0].imageUrl %>" alt="" class="post-image">
+                <div class="post-preview">
+                    <h2><a href=""><%- blog[0].title %></a></h2>
+                    <h5><a href=""></a><%- blog[0].subTitle %></h5>
+                    <i class="far fa-user">A Jass</i>
+                    &nbsp;
+                    <i class="far calender">
+
+                    </i>
+                    <p class="preview-text"><%- blog[0].description %>
 
 
-                        </p>
-                        <a href="/delete/<%- blog[0].id %>" class="btn delete-more">Delete Me</a>
-                        <a href="/edit/<%- blog[0].id %>" class="btn edit-more">Edit Me</a>
-                    </div>
+                    </p>
+                    <a href="/delete/<%- blog[0].id %>" class="btn delete-more">Delete Me</a>
+                    <a href="/edit/<%- blog[0].id %>" class="btn edit-more">Edit Me</a>
                 </div>
-                
+            </div>
+
         </div>
 
         <!-- sidebar  -->
@@ -658,21 +696,29 @@
 
                 <div class="post clearfix">
                     <img src="<%- blog[0].imageUrl %>" alt="">
-                    <a href="" class="title"><h4>How to overcome your feras</h4></a>
+                    <a href="" class="title">
+                        <h4>How to overcome your feras</h4>
+                    </a>
                 </div>
                 <div class="post clearfix">
                     <img src="<%- blog[0].imageUrl %>" alt="">
-                    <a href="<%- blog[0].imageUrl %>" class="title"><h4>How to overcome your feras</h4></a>
+                    <a href="<%- blog[0].imageUrl %>" class="title">
+                        <h4>How to overcome your feras</h4>
+                    </a>
                 </div>
                 <div class="post clearfix">
                     <img src="" alt="">
-                    <a href="" class="title"><h4>How to overcome your feras</h4></a>
+                    <a href="" class="title">
+                        <h4>How to overcome your feras</h4>
+                    </a>
                 </div>
                 <div class="post clearfix">
                     <img src="" alt="">
-                    <a href="" class="title"><h4>How to overcome your feras</h4></a>
+                    <a href="" class="title">
+                        <h4>How to overcome your feras</h4>
+                    </a>
                 </div>
-            </div>   
+            </div>
 
             <div class="section topics">
                 <h2 class="section-title">Topics</h2>
@@ -684,38 +730,11 @@
                     <li><a href="">Motivation</a></li>
                     <li><a href="">Inspiration</a></li>
                     <li><a href="">Life Lessons</a></li>
-
                 </ul>
             </div>
-
-
         </div>
     </div>
     <!-- end  content  -->
-
-
-    <!-- <br><br><br>
-    <br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
-
-    <div class="container">
-       
-        <div class="blog-card">
-            <img class="blog-image" src="<%- blog[0].imageUrl %>" alt="Blog Image" >
-            <div class="blog-title">"<%- blog[0].title %>"</div>
-            <div class="blog-subtitle">"<%- blog[0].subTitle %>"</div>
-            <div class="blog-description">"<%- blog[0].description %>"</div>
-            <button><a href="/delete/<%- blog[0].id %>">Delete Me</a></button>
-            <button> <a href="/edit/<%- blog[0].id %>">Edit Me</a> </button>
-          
-        </div>
-       
-
-
-
-        <!-- Add more blog cards here as needed -->
-
-    </div>
     <!-- footer  -->
 
     <div class="footer">
@@ -838,5 +857,3 @@
 </body>
 
 </html>
-
-
