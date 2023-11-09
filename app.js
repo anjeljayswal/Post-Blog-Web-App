@@ -168,7 +168,7 @@ app.post("/edit/:id", upload.single('image'),async(req,res)=>{
         }
     })
 
-    res.redirect("/blog/"+id)
+    res.redirect("/blogs/"+id)
 })
 
 // //edit form bata aako data handle

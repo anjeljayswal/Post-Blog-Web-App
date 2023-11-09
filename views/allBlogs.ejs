@@ -7,7 +7,7 @@
     <title>Blog</title>
     <!-- fonts awsome  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link href="css/home.css" rel="stylesheet">
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
@@ -27,13 +27,14 @@
             box-sizing: border-box;
         }
 
-        html,
-        body {
-            height: 100%;
-            padding: 0;
+
+        html,body {
             margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
             background: #f6f6f6;
-            font-family: 'Lora', serif;
+            flex-direction: column;
         }
 
         h1,
@@ -71,15 +72,19 @@
             border: 1px solid #e0e0e0;
             border-radius: 5px;
             outline: none;
-            color: #444;
+            color: #444444;
             line-height: 1.5rem;
             font-size: 1.2em;
             font-family: 'Lora', serif;
+        }
+        .note-input{
+            height: 150px;
         }
 
         header {
             background: #008489;
             height: 66px;
+
         }
 
         header * {
@@ -168,7 +173,7 @@
             min-height: 100%;
         }*/
         .page-wrapper {
-            
+            flex: 1;
         }
 
         .page-wrapper a:hover {
@@ -288,6 +293,17 @@
             width: 60%;
             float: right;
 
+
+
+        }
+
+        .content .main-content .post .post-preview .preview-text {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            /* Number of lines to show before adding ellipsis */
+            -webkit-box-orient: vertical;
         }
 
         .content .main-content .recent-post-title {
@@ -298,8 +314,9 @@
             width: 30%;
             float: left;
 
-            height: 300px;
+            height: 300px; 
         }
+
 
         .content .sidebar .section {
             background: white;
@@ -308,24 +325,27 @@
             margin-bottom: 20px;
         }
 
+
         .content .sidebar .section .section-title {
             margin: 10px 0px 10px 0;
         }
+
 
         .content .sidebar .section .search {
             margin-top: 80px;
         }
 
-        .content .sidebar .section .topics ul {
+        .content .sidebar .section .topics ul{
             margin: 0;
             padding: 0;
             list-style: none;
             border-top: 1px solid #e0e0e0;
         }
 
-        .content .sidebar .section .topics ul li a {
+
+        .content .sidebar .section .topics ul li a{
             display: block;
-            padding: 15px 0px 15px 0px;
+            padding: 15px 0px 15px 10px;
             border-bottom: 1px solid #e0e0e0;
             transition: all 0.3s;
         }
@@ -336,19 +356,17 @@
 
         }
 
-        /*- FOOTER--
+
+        /*- FOOTER--*/
         .footer {
-            background: #303036;
+            background: #008489;;
             color: #d3d3d3;
-            height: 400px;
-            position: absolute;
-            /*position: relative; 
-            bottom: 0;
-            margin-bottom: 0px;
+            height: 350px;
+            
         }
 
         .footer .footer-content {
-            
+
             height: 350px;
             display: flex;
             flex-direction: row;
@@ -358,7 +376,7 @@
         .footer .footer-content .footer-section {
             flex: 1;
             padding: 25px;
-            
+
             box-sizing: border-box;
         }
 
@@ -411,7 +429,7 @@
         }
 
         .footer .footer-content .contact-form .contact-input {
-            background: #272727;
+            background: #73dfe4;
             color: #bebdbd;
             margin-bottom: 10px;
             line-height: 1.5rem;
@@ -419,12 +437,16 @@
             border: none;
             height: 50px;
         }
+        
 
         .footer .footer-content .contact-form .contact-input:focus {
             background: #1a1a1a;
         }
-        .contact-btn{
+
+        .contact-btn {
             float: right;
+            font-size: 1.1em;
+            font-family: 'Lora',serif;
         }
 
         .btn-big {
@@ -441,12 +463,12 @@
             height: 50px;
             width: 100%;
             text-align: center;
-            position: absolute;
+
             bottom: 0px;
             left: 0px;
             padding-top: 20px;
         }
-        */
+
 
 
 
@@ -531,7 +553,7 @@
             <li><a href="#">About</a></li>
             <li><a href="/addBlog">Add Blog</a></li>
             <li><a href="#">Services</a></li>
-            <li><a href="">Contact Us</a></li>
+            
             <!-- <li><a href="">Sign Up</a></li>
             <li><a href="">Login</a></li> -->
             <li>
@@ -652,7 +674,7 @@
 
     <!-- footer  -->
 
-    <!-- <div class="footer">
+    <div class="footer">
         <div class="footer-content">
             <div class="footer-section about">
                 <h1 class="logo-text"><span>Awa</span>Inspires</h1>
@@ -706,7 +728,7 @@
                 <form action="" method="post"></form>
                 <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...">
                 <textarea name="message" class="text-input contact-input" placeholder="Your message..." id="" cols="30"
-                    rows="10"></textarea>
+                    rows="5"></textarea>
                 <button type="submit" class="btn btn-big contact-btn">
                     <i class="fas fa-envelope"></i>
                     Send
@@ -720,8 +742,9 @@
             &copy; 2023 102TCMS | Designed by Anjali Jayswal
         </div>
 
-    </div> -->
+    </div>
     <!-- //footer  -->
+
 
     <!-- slick crausels  -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
