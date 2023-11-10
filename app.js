@@ -187,11 +187,18 @@ function formatDate(dateStr) {
 // Make the function available to your EJS templates
 app.locals.formatDate = formatDate;
 
-
+// Serve static files (including CKEditor) from the public directory
+app.use(express.static('public'));
+app.get("/adminc",(req,res)=>{
+    res.render("adminCreate")
+})
 // get all Blogs 
 //resister
 app.get("/register",(req,res)=>{
     res.render("registerUser")
+})
+app.get("/admini",(req,res)=>{
+    res.render("adminIndex.ejs")
 })
 
 
