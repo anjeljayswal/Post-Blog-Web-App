@@ -2,15 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Section - Manage Post</title>
+    <title>Admin Section -Add Users</title>
     <!-- fonts awsome  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-
+    <!-- jquery  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
+    <!-- ckeditor -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
 
 
     <!-- bootstrap1 -->
@@ -28,8 +29,7 @@
         }
 
 
-        html,
-        body {
+        html,body {
             margin: 0;
             padding: 0;
             min-height: 100vh;
@@ -61,7 +61,7 @@
             border: 1px solid transparent;
             border-radius: .25rem;
             font-size: 1.08em;
-            font-family: 'Lora', serif;
+            font-family: 'Lora',serif;
         }
 
         .btn:hover {
@@ -81,11 +81,9 @@
             font-size: 1.2em;
             font-family: 'Lora', serif;
         }
-
-        .note-input {
+        .note-input{
             height: 150px;
         }
-
         header {
             background: rgb(6, 80, 82);
             height: 66px;
@@ -173,83 +171,73 @@
         header .menu-toggle {
             display: none;
         }
-
         /*admin wrapper */
-        .admin-wrapper {
+        .admin-wrapper{
             /*border: 1px solid rgb(33, 27, 27);*/
             display: flex;
-            height: 100vh; 
-
+            height: 100vh;
+          
         }
-
-        .admin-wrapper .left-sidebar {
+        .admin-wrapper .left-sidebar{
             flex: 2;
             height: 100%;
-            background: #234a57;
-            /* border: 1px solid red;*/
+            background: #234a57 ;
+           /* border: 1px solid red;*/
         }
-
-        .admin-wrapper .left-sidebar ul {
+        .admin-wrapper .left-sidebar ul{
             list-style: none;
             margin: 0px;
             padding: 0px;
             color: aliceblue;
 
         }
-
-        .admin-wrapper .left-sidebar ul li a {
+        .admin-wrapper .left-sidebar ul li a{
             padding: 18px;
             display: block;
-            border-bottom: 1px solid #004044;
-
+            border-bottom:1px solid #004044 ;
+            
         }
-
-        .admin-wrapper .left-sidebar ul li a:hover {
-            background: #004044;
+        .admin-wrapper .left-sidebar ul li a:hover{
+            background:#004044 ;
         }
-
-        .admin-wrapper .admin-content {
+        .admin-wrapper .admin-content{
             flex: 8;
             height: 100%;
             padding: 40px 100px 100px;
             overflow-y: scroll;
-            /* border: 1px solid rgb(21, 255, 0);*/
+           /* border: 1px solid rgb(21, 255, 0);*/
         }
-
-        .admin-content .page-title {
+        .admin-content .page-title{
             text-align: center;
             margin-bottom: 1.5rem;
         }
-
-        table {
+        table{
             width: 100%;
-            border-collapse: collapse;
+            border-collapse:   collapse ;
             font-size: 1.1rem;
         }
 
-        th,
-        td {
+        th,td{
             padding: 15px;
             text-align: left;
             border-bottom: 1px solid #d3d3d3;
         }
-
-        .edit {
+        .edit{
             color: green;
         }
-
-        .delete {
+        .delete{
             color: red;
         }
-
-        .publish {
+        .publish{
             color: blue;
         }
-
         .edit:hover,
         .delete:hover,
-        .publish:hover {
-            text-decoration: underline;
+        .publish:hover{
+           text-decoration: underline; 
+        }
+        form div{
+            margin-bottom:15px ;
         }
     </style>
 
@@ -272,7 +260,7 @@
                     <i class="fa fa-chevron-down" style="font-size: .8rem;"></i>
                 </a>
                 <ul>
-
+                    
                     <li><a href="#" class="logout">Logout</a></li>
                 </ul>
             </li>
@@ -285,59 +273,96 @@
         <!-- left sidebar  -->
         <div class="left-sidebar">
             <ul>
-
                 <li><a href="/admini">Manage Posts</a></li>
                 <li><a href="/usersi">Manage Usage</a></li>
-                <li><a href="topici">Manage Topics</a></li>
+                <li><a href="/topici">Manage Topics</a></li>
             </ul>
 
         </div>
 
         <!-- admin-content  -->
-
         <div class="admin-content">
             <div class="button-group">
-                <a href="/adminc" class="btn btn-big">Add Post</a>
-                <a href="/admini" class="btn btn-big">Manage Post</a>
+                <a href="/usersc" class="btn btn-big">Add Uesrs</a>
+                <a href="/usersi" class="btn btn-big">Manage Users</a>
             </div>
             <div class="content">
-                <h2 class="page-title">Manage Posts</h2>
-                <table>
-                    <thead>
-                        <th>SN</th>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th colspan="3">Action</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>This is first post</td>
-                            <td>Awa</td>
-                            <td><a href="" class="edit">Edit</a></td>
-                            <td><a href="" class="delete">Delete</a></td>
-                            <td><a href="" class="publish">publish</a></td>
-
-                        </tr>
-                    </tbody>
-                </table>
+                <h2 class="page-title">Add User</h2>
+                <form action="">
+                    <div>
+                        <label for="">Username</label>
+                        <input type="text" name="username" class="text-input">
+                    </div>
+                    <div>
+                        <label for="">Email</label>
+                        <input type="email" name="email" class="text-input">
+                    </div>
+                    <div>
+                        <label for="">Password</label>
+                        <input type="password" name="password" class="text-input">
+                    </div>
+                    <div>
+                        <label for="">Password Confirmation</label>
+                        <input type="password" name="passwordConf" class="text-input">
+                    </div>
+                    <div>
+                        <label for="">Role</label>
+                        <select name="role" id="" class="text-input">
+                            <option value="Auther">Auther</option>
+                            <option value="Admin">Admin</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-big">Add User</button>
+                    </div>
+                </form>
 
             </div>
-
+            
 
         </div>
-
+        
     </div>
     <!-- end admin wrapper  -->
-
+    
     <script>
-        $('.menu-toggle').on('click', function () {
+        $('.menu-toggle').on('click', function() {
             $('.nav').toggleClass('showing');
             $('.nav ul').toggleClass('showing');
         });
 
-    </script>
 
+        /*<!-- ckeditor 5 --*/
+            ClassicEditor.create(document.querySelector('#body'),{
+                toolbar:[
+                "heading",
+                "|",
+                "bold",
+                "italic",
+                "link",
+                "bulletedList",
+                "numberedList",
+                "blockQuote"
+                ],
+
+                heading:{
+                    options:[
+                    
+                    { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                    { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                    { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
+                    
+                    ]
+                }
+            }).catch(error => {
+                console.error(error);
+            });
+
+        
+    </script>
+    
 </body>
 
 </html>
+
+<!-- npm i npm install --save @ckeditor/ckeditor5-build-classic -->

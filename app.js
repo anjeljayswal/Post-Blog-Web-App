@@ -192,6 +192,18 @@ app.use(express.static('public'));
 app.get("/adminc",(req,res)=>{
     res.render("adminCreate")
 })
+app.get("/topici",(req,res)=>{
+    res.render("topicsIndex")
+})
+app.get("/topicc",(req,res)=>{
+    res.render("topicCreate")
+})
+app.get("/usersc",(req,res)=>{
+    res.render("usersCreate")
+})
+app.get("/usersi",(req,res)=>{
+    res.render("usersIndex")
+})
 // get all Blogs 
 //resister
 app.get("/register",(req,res)=>{

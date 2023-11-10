@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Section - Manage Post</title>
+    <title>Admin Section - Manage users</title>
     <!-- fonts awsome  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
@@ -287,36 +287,44 @@
             <ul>
 
                 <li><a href="/admini">Manage Posts</a></li>
-                <li><a href="/usersi">Manage Usage</a></li>
-                <li><a href="topici">Manage Topics</a></li>
+                <li><a href="/usersi">Manage Users</a></li>
+                <li><a href="/topici">Manage Topics</a></li>
             </ul>
 
         </div>
 
         <!-- admin-content  -->
-
         <div class="admin-content">
             <div class="button-group">
-                <a href="/adminc" class="btn btn-big">Add Post</a>
-                <a href="/admini" class="btn btn-big">Manage Post</a>
+                <a href="/usersc" class="btn btn-big">Add Users</a>
+                <a href="/usersi" class="btn btn-big">Manage users</a>
             </div>
             <div class="content">
-                <h2 class="page-title">Manage Posts</h2>
+                <h2 class="page-title">Manage Users</h2>
                 <table>
                     <thead>
                         <th>SN</th>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th colspan="3">Action</th>
+                        <th>Username</th>
+                        <th>Role</th>
+                        <th colspan="2">Action</th>
                     </thead>
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>This is first post</td>
-                            <td>Awa</td>
+                            <td>Anny</td>
+                            <td>Admin</td>
                             <td><a href="" class="edit">Edit</a></td>
                             <td><a href="" class="delete">Delete</a></td>
-                            <td><a href="" class="publish">publish</a></td>
+                            
+
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Jenis</td>
+                            <td>Admin</td>
+                            <td><a href="" class="edit">Edit</a></td>
+                            <td><a href="" class="delete">Delete</a></td>
+                            
 
                         </tr>
                     </tbody>
@@ -328,6 +336,7 @@
         </div>
 
     </div>
+    
     <!-- end admin wrapper  -->
 
     <script>
