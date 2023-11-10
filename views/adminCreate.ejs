@@ -29,7 +29,8 @@
         }
 
 
-        html,body {
+        html,
+        body {
             margin: 0;
             padding: 0;
             min-height: 100vh;
@@ -61,7 +62,7 @@
             border: 1px solid transparent;
             border-radius: .25rem;
             font-size: 1.08em;
-            font-family: 'Lora',serif;
+            font-family: 'Lora', serif;
         }
 
         .btn:hover {
@@ -81,9 +82,11 @@
             font-size: 1.2em;
             font-family: 'Lora', serif;
         }
-        .note-input{
+
+        .note-input {
             height: 150px;
         }
+
         header {
             background: rgb(6, 80, 82);
             height: 66px;
@@ -171,73 +174,87 @@
         header .menu-toggle {
             display: none;
         }
+
         /*admin wrapper */
-        .admin-wrapper{
+        .admin-wrapper {
             /*border: 1px solid rgb(33, 27, 27);*/
             display: flex;
             height: 100vh;
-          
+
         }
-        .admin-wrapper .left-sidebar{
+
+        .admin-wrapper .left-sidebar {
             flex: 2;
             height: 100%;
-            background: #234a57 ;
-           /* border: 1px solid red;*/
+            background: #234a57;
+            /* border: 1px solid red;*/
         }
-        .admin-wrapper .left-sidebar ul{
+
+        .admin-wrapper .left-sidebar ul {
             list-style: none;
             margin: 0px;
             padding: 0px;
             color: aliceblue;
 
         }
-        .admin-wrapper .left-sidebar ul li a{
+
+        .admin-wrapper .left-sidebar ul li a {
             padding: 18px;
             display: block;
-            border-bottom:1px solid #004044 ;
-            
+            border-bottom: 1px solid #004044;
+
         }
-        .admin-wrapper .left-sidebar ul li a:hover{
-            background:#004044 ;
+
+        .admin-wrapper .left-sidebar ul li a:hover {
+            background: #004044;
         }
-        .admin-wrapper .admin-content{
+
+        .admin-wrapper .admin-content {
             flex: 8;
             height: 100%;
             padding: 40px 100px 100px;
             overflow-y: scroll;
-           /* border: 1px solid rgb(21, 255, 0);*/
+            /* border: 1px solid rgb(21, 255, 0);*/
         }
-        .admin-content .page-title{
+
+        .admin-content .page-title {
             text-align: center;
             margin-bottom: 1.5rem;
         }
-        table{
+
+        table {
             width: 100%;
-            border-collapse:   collapse ;
+            border-collapse: collapse;
             font-size: 1.1rem;
         }
 
-        th,td{
+        th,
+        td {
             padding: 15px;
             text-align: left;
             border-bottom: 1px solid #d3d3d3;
         }
-        .edit{
+
+        .edit {
             color: green;
         }
-        .delete{
+
+        .delete {
             color: red;
         }
-        .publish{
+
+        .publish {
             color: blue;
         }
+
         .edit:hover,
         .delete:hover,
-        .publish:hover{
-           text-decoration: underline; 
+        .publish:hover {
+            text-decoration: underline;
         }
-        form div{
-            margin-bottom:15px ;
+
+        form div {
+            margin-bottom: 15px;
         }
     </style>
 
@@ -248,7 +265,7 @@
     <header>
         <div class="logo">
             <h1 class="logo-text">
-                <span>Awa</span>Inspires
+                <span>New</span>Inspires
             </h1>
         </div>
         <i class="fa fa-bars menu-toggle" aria-hidden="true"></i>
@@ -260,7 +277,7 @@
                     <i class="fa fa-chevron-down" style="font-size: .8rem;"></i>
                 </a>
                 <ul>
-                    
+
                     <li><a href="#" class="logout">Logout</a></li>
                 </ul>
             </li>
@@ -288,25 +305,25 @@
             </div>
             <div class="content">
                 <h2 class="page-title">Add Posts</h2>
-                <form action="">
+                <form action="/adminc" method="post" enctype="multipart/form-data">
                     <div>
                         <label for="">Title</label>
                         <input type="text" name="title" class="text-input">
                     </div>
                     <div>
                         <label for="">Body</label>
-                        <textarea name="body" id="body" ></textarea>
+                        <textarea name="bodys" id="body"></textarea>
 
                     </div>
                     <div>
                         <label for="">Image</label>
-                        <input type="file" name="image" class="text-input" >
+                        <input type="file" name="image" class="text-input">
 
                     </div>
 
                     <div>
                         <label for="">Topic</label>
-                        <select name="topic" id="" class="text-input">
+                        <select name="topic" id="topicSelect" class="text-input">
                             <option value="Poetry">Poetry</option>
                             <option value="Life Lession">Life Lession</option>
                         </select>
@@ -317,23 +334,21 @@
                 </form>
 
             </div>
-            
+
 
         </div>
-        
+
     </div>
     <!-- end admin wrapper  -->
-    
+
     <script>
-        $('.menu-toggle').on('click', function() {
+        $('.menu-toggle').on('click', function () {
             $('.nav').toggleClass('showing');
             $('.nav ul').toggleClass('showing');
         });
-
-
         /*<!-- ckeditor 5 --*/
-            ClassicEditor.create(document.querySelector('#body'),{
-                toolbar:[
+        ClassicEditor.create(document.querySelector('#body'), {
+            toolbar: [
                 "heading",
                 "|",
                 "bold",
@@ -342,24 +357,22 @@
                 "bulletedList",
                 "numberedList",
                 "blockQuote"
-                ],
+            ],
 
-                heading:{
-                    options:[
-                    
+            heading: {
+                options: [
+
                     { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
                     { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
                     { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
-                    
-                    ]
-                }
-            }).catch(error => {
-                console.error(error);
-            });
 
-        
+                ]
+            }
+        }).catch(error => {
+            console.error(error);
+        });
     </script>
-    
+
 </body>
 
 </html>

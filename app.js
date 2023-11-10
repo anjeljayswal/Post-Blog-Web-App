@@ -1,5 +1,6 @@
 const express = require("express")
 const { blogs } = require("./model/index.js")
+const { posts } = require("./model/index.js");
 // requiring multerConfig
 const {multer,storage} = require("./middleware/multerConfig.js")
 const upload = multer({storage : storage})
@@ -71,19 +72,17 @@ app.get("/delete/:id", async (req,res)=>{
     res.redirect("/");
 })
 
+// add blog 
 app.get("/addBlog",(req,res)=>{
     res.render("addBlog")
 })
 
 // api for handling formdata
-app.post("/addBlog",upload.single('image'), async(req,res)=>{
-
-  
+app.post("/addBlog",upload.single('image'), async(req,res)=>{  
     // const title = req.body.title
     // const subTitle = req.body.subTitle
 //    ALTERNATIVE 
     const {title,subTitle,description} = req.body 
-
   await blogs.create({
     title , 
     subTitle  ,
@@ -189,9 +188,44 @@ app.locals.formatDate = formatDate;
 
 // Serve static files (including CKEditor) from the public directory
 app.use(express.static('public'));
+
+
+// add post 
 app.get("/adminc",(req,res)=>{
     res.render("adminCreate")
 })
+
+// api for handling formdata
+app.post("/adminc",upload.single('image'), async(req,res)=>{   
+    const {title,bodys} = req.body
+    const selectedTopics = req.body.topic; 
+    try {
+        const newPost = await posts.create({
+            title,
+            body:bodys,
+
+            topic:selectedTopics,
+            imageUrl: process.env.BACKEND_URL + req.file.filename,
+        });
+
+        // console.log("Blog created successfully:", newPost);
+        // res.send("Blog created successfully");
+        res.redirect("/");
+    } catch (error) {
+        console.error("Error creating blog:", error);
+        res.status(500).send("Internal Server Error");
+    }
+//    res.send("BLog created successfully")
+   //    res.r/edirect("/")
+
+})
+
+
+
+
+
+
+
 app.get("/topici",(req,res)=>{
     res.render("topicsIndex")
 })
