@@ -26,6 +26,8 @@ require("./model/index.js")
 app.set("view engine","ejs")
 
 const fs = require("fs");
+const { renderEditBlog, editBlog, addBlog, deleteblog, singleBlog } = require("./controller/blogController.js");
+const { registerUser, loginUser } = require("./controller/authController.js");
 
 // telling nodejs to accept the incoming data(parsing data)
 app.use(express.json()) // cT = application/json handle
@@ -42,37 +44,11 @@ app.get("/",async(req,res)=>{
 // app.get("/2",(req,res)=>{
 //     res.send("Id 2 came")
 // })
-app.get("/blogs/:id",async  (req,res)=>{
-    // console.log(req.params.id)
-    const id = req.params.id;
-    // const {id} = req.params; //alternative of avobe called object destructuring
-
-    // aako od ko dat blogs table fetch/find garnu paryo
-    const blog = await blogs.findAll({
-        where:{
-            id: id
-    }})
-    // console.log("Hello i am 2");
-
-    // const blog = await blogs.findByPk(id);
-    
-    // console.log(blog);
-    // res.send("Id ${2} came")
-    res.render("singleBlog.ejs",{blog:blog})
-})
+app.get("/blogs/:id",singleBlog)
 
 
 //delete blog
-app.get("/delete/:id", async (req,res)=>{
-    const id = req.params.id;
-    // aako id ko data(row) chae blogs vanney table bata delete garnu paryo 
-    await blogs.destroy({
-        where:{
-            id:id
-        }
-    })
-    res.redirect("/");
-})
+app.get("/delete/:id", deleteblog)
 
 // add blog 
 app.get("/addBlog",(req,res)=>{
@@ -80,97 +56,13 @@ app.get("/addBlog",(req,res)=>{
 })
 
 // api for handling formdata
-app.post("/addBlog",upload.single('image'), async(req,res)=>{  
-    // const title = req.body.title
-    // const subTitle = req.body.subTitle
-//    ALTERNATIVE 
-    const {title,subTitle,description} = req.body 
-  await blogs.create({
-    title , 
-    subTitle  ,
-    description ,
-    imageUrl : process.env.BACKEND_URL + req.file.filename
-   })
-//    res.send("BLog created successfully")
-   res.redirect("/")
-
-})
+app.post("/addBlog",upload.single('image'),addBlog)
 //edit blog form
-app.get("/edit/:id",async(req,res)=>{
-    // res.render("editBlog")
-    // find the blog with coming id 
-    const id = req.params.id 
-    const blog= await blogs.findAll({
-        where :{
-            id:id
-        }
-    })
-    res.render("editBlog.ejs",{blog:blog})
-})
+app.get("/edit/:id",renderEditBlog)
 
 
 // edit form bata aako data handle 
-app.post("/edit/:id", upload.single('image'),async(req,res)=>{
-
-    const id = req.params.id;
-    const { title, subTitle, description} = req.body;
-    let fileName 
-    if(req.file){
-        fileName = req.file.fieldname
-    }
-
-    // fs file system package, unlink method ho 
-    // fs.unlink("./uploads/test.txt",(err)=>{
-    //     if(err){
-
-
-    //     }else{
-    //         console.log("File delet succefully");
-    //     }
-    // })
-    
-    //old data
-    const oldData = await blogs.findAll({
-        where:{
-            id:id
-        }
-    })
-    const oldFileName = oldData[0].imageUrl
-    // console.log(oldFileName)
-    const lengthToCut = "http://localhost:3000/".length
-    // console.log(lengthToCut)
-
-    const oldFileNameAfterCut = oldFileName.slice(lengthToCut);
-    // console.log(oldFileNameAfterCut)
-    
-    // return
-    
-
-    if(fileName){
-        //delete old beacuase naya aairako xa
-        fs.unlink("./uploads/" + oldFileNameAfterCut,(err)=>{
-            if(err){
-                console.log("error occured", err)
-            }else{
-                console.log("old file delete successfully");
-            }
-        })
-    }
-
-    // to keep in dbms 
-    await blogs.update({
-        title:title,
-        subTitle:subTitle,
-        description:description,
-        imageUrl : fileName ? process.env.BACKEND_URL + fileName : oldFileName
-    },{
-        where:{
-            id:id
-        }
-    })
-
-    res.redirect("/blogs/"+id)
-})
+app.post("/edit/:id",upload.single('image'), editBlog)
 
 // //edit form bata aako data handle
 // app.post("/edit/:id",(res,req)=>{
@@ -229,48 +121,34 @@ app.post("/adminc",upload.single('image'), async(req,res)=>{
 app.get("/register",(req,res)=>{
     res.render("registerUser")
 })
-app.post("/register", async (req,res)=>{
-    const {username, email, password} =req.body;
-    await users.create({ //users from model
-        email,
-        username,
-        password: bcrypt.hashSync(password, 10), //here 10 is saas value means how deep we want to hash pur password
-    })
-    res.send("User registered Successfulyy")
-})
+app.post("/register",registerUser )
 
 //login user
 app.get("/login",(req,res)=>{
     res.render("userLogin")
 })
-app.post("/login", (req,res)=>{
-    //access email and password
-    const { email, password} = req.body;
-    if(!email || !password){
-        return res.send("Please provide email and password");
+app.post("/login", loginUser)
 
-    }
+// app.get("/admini",(req,res)=>{
+//     res.render("adminIndex.ejs")
+// })
 
-} )
-app.get("/admini",(req,res)=>{
-    res.render("adminIndex.ejs")
-})
-
-app.get("/topici",(req,res)=>{
-    res.render("topicsIndex")
-})
-app.get("/topicc",(req,res)=>{
-    res.render("topicCreate")
-})
-app.get("/usersc",(req,res)=>{
-    res.render("usersCreate")
-})
-app.get("/usersi",(req,res)=>{
-    res.render("usersIndex")
-})
+// app.get("/topici",(req,res)=>{
+//     res.render("topicsIndex")
+// })
+// app.get("/topicc",(req,res)=>{
+//     res.render("topicCreate")
+// })
+// app.get("/usersc",(req,res)=>{
+//     res.render("usersCreate")
+// })
+// app.get("/usersi",(req,res)=>{
+//     res.render("usersIndex")
+// })
 
 
 app.use(express.static("./uploads/"))
+app.use(express.static("./public/"))
 
 const PORT  = process.env.PORT
 

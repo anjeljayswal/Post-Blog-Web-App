@@ -594,42 +594,7 @@
 </head>
 
 <body>
-    <!-- Nav bar with responsive  -->
-    <header>
-        <div class="logo">
-            <h1 class="logo-text">
-                <span>New</span>Inspires
-            </h1>
-        </div>
-        <i class="fa fa-bars menu-toggle" aria-hidden="true"></i>
-        <ul class="nav">
-            <li><a href="/">Home</a>
-                <!-- <ul style="left:0px">
-                    <li><a href="#">Landing Page</a></li>
-                    <li><a href="#">Team</a></li>
-                </ul> -->
-            </li>
-            <li><a href="#">About</a></li>
-            <li><a href="/addBlog">Add Blog</a></li>
-            <li><a href="#">Services</a></li>
-            
-            <li><a href="/register">Sign Up</a></li>
-            <li><a href="/login">Login</a></li> 
-            <!-- <li>
-                <a href="#">
-                    <i class="fa fa-user"></i>
-                    A Jass
-                    <i class="fa fa-chevron-down" style="font-size: .8rem;"></i>
-                </a>
-                <ul>
-                    <li><a href="#">Dhashboard</a></li>
-                    <li><a href="#" class="logout">Logout</a></li>
-                </ul>
-            </li> -->
-        </ul>
-    </header>
-    <!-- end of Nav bar with responsive  -->
-
+    <%- include("navbar.ejs") %>
     <!-- crausel slider  -->
     <div class="page-wrapper">
         <div class="post-slider">
@@ -732,76 +697,8 @@
     </div> -->
 
     <!-- footer  -->
-
-    <div class="footer">
-        <div class="footer-content">
-            <div class="footer-section about">
-                <h1 class="logo-text"><span>New</span>Inspires</h1>
-                <p>
-                    NewInspires is fictionsl blog conceived for the purpose of tutorial on YoTube.
-                    Howeve, New has a blog called piececpfadvice where he writes truely inspiring stuff.
-                </p>
-                <div class="contact">
-                    <span><i class="fas fa-phone"></i>&nbsp; 123-456-789</span>
-                    <span><i class="fas fa-envelope">&nbsp; abc@gmail.com</i></span>
-                </div>
-                <div class="socials">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-linkdin"></i></a>
-                </div>
-
-            </div>
-
-            <div class="footer-section links">
-                <h2>Quick Links</h2>
-                <br>
-                <ul>
-                    <a href="#">
-                        <li>Events</li>
-                    </a>
-
-                    <a href="#">
-                        <li>Team</li>
-                    </a>
-
-                    <a href="#">
-                        <li>Mentors</li>
-                    </a>
-
-                    <a href="#">
-                        <li>Gallery</li>
-                    </a>
-
-                    <a href="#">
-                        <li>Terms and Conditions</li>
-                    </a>
-
-                </ul>
-            </div>
-            <div class="footer-section contact-form">
-                <h2>Contact us</h2>
-                <br>
-                <form action="" method="post"></form>
-                <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...">
-                <textarea name="message" class="text-input contact-input" placeholder="Your message..." id="" cols="30"
-                    rows="5"></textarea>
-                <button type="submit" class="btn btn-big contact-btn">
-                    <i class="fas fa-envelope"></i>
-                    Send
-                </button>
-
-            </div>
-
-
-        </div>
-        <div class="footer-bottom">
-            &copy; 2023 102TCMS | Designed by Anjali Jayswal
-        </div>
-
-    </div>
+    <%- include("footer.ejs") %>
+    
     <!-- //footer  -->
 
 
