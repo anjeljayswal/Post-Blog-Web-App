@@ -1,12 +1,14 @@
 const express = require("express")
 const { blogs } = require("./model/index.js")
-const { posts } = require("./model/index.js");
+const { posts, users } = require("./model/index.js");
+// const {users}=require("./middleware/index.js")
 // requiring multerConfig
 const {multer,storage} = require("./middleware/multerConfig.js")
 const upload = multer({storage : storage})
 // const multer = require("./middleware/multerConfig.js").multer
 // const storage = require("./middleware/multerConfig.js").storage
 
+const bcrypt = require("bcrypt");
 
 var jsdom = require("jsdom");
 const { JSDOM } = jsdom;
@@ -221,10 +223,38 @@ app.post("/adminc",upload.single('image'), async(req,res)=>{
 })
 
 
+// get all Blogs 
 
+//resister
+app.get("/register",(req,res)=>{
+    res.render("registerUser")
+})
+app.post("/register", async (req,res)=>{
+    const {username, email, password} =req.body;
+    await users.create({ //users from model
+        email,
+        username,
+        password: bcrypt.hashSync(password, 10), //here 10 is saas value means how deep we want to hash pur password
+    })
+    res.send("User registered Successfulyy")
+})
 
+//login user
+app.get("/login",(req,res)=>{
+    res.render("userLogin")
+})
+app.post("/login", (req,res)=>{
+    //access email and password
+    const { email, password} = req.body;
+    if(!email || !password){
+        return res.send("Please provide email and password");
 
+    }
 
+} )
+app.get("/admini",(req,res)=>{
+    res.render("adminIndex.ejs")
+})
 
 app.get("/topici",(req,res)=>{
     res.render("topicsIndex")
@@ -237,14 +267,6 @@ app.get("/usersc",(req,res)=>{
 })
 app.get("/usersi",(req,res)=>{
     res.render("usersIndex")
-})
-// get all Blogs 
-//resister
-app.get("/register",(req,res)=>{
-    res.render("registerUser")
-})
-app.get("/admini",(req,res)=>{
-    res.render("adminIndex.ejs")
 })
 
 

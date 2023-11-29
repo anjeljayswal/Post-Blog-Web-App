@@ -26,7 +26,9 @@
         * {
             box-sizing: border-box;
         }
-        html,body {
+
+        html,
+        body {
             margin: 0;
             padding: 0;
             min-height: 100vh;
@@ -34,27 +36,37 @@
             background: #f6f6f6;
             flex-direction: column;
         }
-        h1,h2,h3,h4,h5,h6 {
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: 'Candal', serif;
             color: #444;
             margin: 5px;
         }
+
         a {
             text-decoration: none;
             color: inherit;
         }
+
         .btn {
             background: #006669;
             color: white;
             border: 1px solid transparent;
             border-radius: .25rem;
             font-size: 1.08em;
-            font-family: 'Lora',serif;
+            font-family: 'Lora', serif;
         }
-        .btn-big{
+
+        .btn-big {
             padding: .7rem 1.3rem;
             line-height: 1.3rem;
         }
+
         .btn:hover {
             color: white !important;
             background: #005255;
@@ -72,26 +84,29 @@
             font-size: 1.2em;
             font-family: 'Lora', serif;
         }
-        .note-input{
+
+        .note-input {
             height: 150px;
         }
 
-        .msg{
+        .msg {
             width: 100%;
             margin: 5px auto;
             padding: 8px;
-            border-radius:5px ;
+            border-radius: 5px;
             list-style: none;
         }
-        .success{
+
+        .success {
             color: #3a6e3a;
             border: 1px solid #3a6e3a;
             background: #bcf5bc;
         }
-        .error{
+
+        .error {
             color: #884b4b;
             border: 1px solid #884b4b;
-            background: #f5bcbc; 
+            background: #f5bcbc;
         }
 
 
@@ -230,47 +245,54 @@
                 top: 20px;
                 font-size: 1.9em;
             }
+
             header .logo {
                 margin-left: .5em;
             }
         }
 
         /*auth page */
-        .auth-content{
+        .auth-content {
             width: 30%;
             margin: 50px auto;
             padding: 20px;
             background: white;
             border-radius: 5px;
         }
-        .auth-content .form-title{
+
+        .auth-content .form-title {
             text-align: center;
         }
-        .auth-content form div{
+
+        .auth-content form div {
             margin-bottom: 10px;
         }
-        .auth-content form p{
+
+        .auth-content form p {
             text-align: center;
         }
-        .auth-content form p a{
+
+        .auth-content form p a {
             text-decoration: underline;
         }
-        @media only screen and (max-width:934px){
-            .auth-content{
+
+        @media only screen and (max-width:934px) {
+            .auth-content {
                 width: 50%;
             }
         }
-        @media only screen and (max-width:770px){
-            .auth-content{
+
+        @media only screen and (max-width:770px) {
+            .auth-content {
                 width: 60%;
             }
         }
-        @media only screen and (max-width:600px){
-            .auth-content{
+
+        @media only screen and (max-width:600px) {
+            .auth-content {
                 width: 90%;
             }
         }
-
     </style>
 
 </head>
@@ -294,10 +316,10 @@
             <li><a href="#">About</a></li>
             <li><a href="/addBlog">Add Blog</a></li>
             <li><a href="#">Services</a></li>
-            
-            <!-- <li><a href="">Sign Up</a></li>
-            <li><a href="">Login</a></li> -->
-            <li>
+
+            <li><a href="/register">Sign Up</a></li>
+            <li><a href="/login">Login</a></li>
+            <!-- <li>
                 <a href="#">
                     <i class="fa fa-user"></i>
                     A Jass
@@ -307,19 +329,17 @@
                     <li><a href="#">Dhashboard</a></li>
                     <li><a href="#" class="logout">Logout</a></li>
                 </ul>
-            </li>
+            </li> -->
         </ul>
     </header>
     <!-- end of Nav bar with responsive  -->
 
     <div class="auth-content">
-
-        <form action="">
+        <form action="/register" method="post">
             <h2 class="form-title">Register</h2>
-            <div class="msg error">
+            <!-- <div class="msg error">
                 <li>Username required</li>
-            </div>
-
+            </div> -->
             <div>
                 <label for="">Username</label>
                 <input type="text" name="username" class="text-input">
@@ -332,33 +352,21 @@
                 <label for="">Password</label>
                 <input type="password" name="password" class="text-input">
             </div>
-            <div>
+            <!-- <div>
                 <label for="">Password Confirmation</label>
                 <input type="password" name="passwordConf" class="text-input">
-            </div>
+            </div> -->
             <div>
                 <button type="submit" name="register-btn" class="btn btn-big">Register</button>
             </div>
-            <p>Or <a href="">Sign In</a></p>
-
-            
-
-            
-
+            <p>Or <a href="/login">Sign In</a></p>
         </form>
-        
     </div>
-    
-
-
-    
     <script>
         $('.menu-toggle').on('click', function () {
             $('.nav').toggleClass('showing');
             $('.nav ul').toggleClass('showing');
         });
-        
-        
     </script>
     <!-- slick crausels  -->
 </body>
